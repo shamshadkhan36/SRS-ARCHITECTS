@@ -344,6 +344,18 @@ window.openScrumModal = function() {
   document.body.style.overflow = 'hidden';
 };
 
+window.openYtVideoModal = function() {
+  const modal = document.getElementById('ytVideoModal');
+  const iframe = document.getElementById('ytVideoIframe');
+  if (iframe) {
+    iframe.src = 'https://www.youtube-nocookie.com/embed/BX4lQVhaT9E?autoplay=1&enablejsapi=1';
+  }
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
 window.openFbVideoModal = function() {
   const modal = document.getElementById('fbVideoModal');
   if (modal) {
@@ -357,6 +369,14 @@ window.closeModal = function(modalId) {
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    
+    // Stop YouTube video playback on close
+    if (modalId === 'ytVideoModal') {
+      const iframe = document.getElementById('ytVideoIframe');
+      if (iframe) {
+        iframe.src = '';
+      }
+    }
   }
 };
 
