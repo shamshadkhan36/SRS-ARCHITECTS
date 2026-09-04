@@ -392,13 +392,13 @@ img, video {
 .home-hero-banner {
   position: relative;
   width: 100%;
-  height: 460px;
+  height: 480px;
   margin-top: 80px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background-color: #121813;
+  background-color: #0d120e;
 }
 
 .hero-media-wrapper {
@@ -407,13 +407,22 @@ img, video {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .hero-media-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
+  z-index: 1;
 }
 
 .hero-media-overlay {
@@ -422,21 +431,24 @@ img, video {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
+  pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.8) 100%
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    rgba(0, 0, 0, 0.75) 100%
   );
 }
 
 .hero-headline-box {
   position: relative;
-  z-index: 10;
+  z-index: 3;
   text-align: center;
-  padding: 0 1.5rem 2.25rem;
+  padding: 0 1.5rem 2.5rem;
   width: 100%;
   max-width: 1100px;
+  pointer-events: none;
 }
 
 .hero-slogan-title {
@@ -447,8 +459,46 @@ img, video {
   color: #ffffff;
   line-height: 1;
   text-transform: uppercase;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
   margin-bottom: 0;
+}
+
+/* Video Play Controls Indicator */
+.hero-video-controls {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.video-control-btn {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.video-control-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.video-control-btn svg {
+  width: 14px;
+  height: 14px;
 }
 
 
