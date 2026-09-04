@@ -61,7 +61,7 @@ const siteData = {
     { id: "landscape", name: "Landscape", count: 24 },
     { id: "urban-planning", name: "Urban Planning", count: 15 },
     { id: "educational", name: "Educational", count: 20 },
-    { id: "culture", name: "Culture & Civic", count: 12 }
+    { id: "interior-design", name: "Interior design", count: 35 }
   ],
 
   projects: [
@@ -221,24 +221,26 @@ const siteData = {
       ]
     },
     {
-      id: "civic-culture-center",
-      title: "Civic Arts & Cultural Exhibition Pavilion",
-      typology: "culture",
-      typologyName: "Culture & Civic",
-      location: "Ghaziabad, UP",
-      year: "2023",
-      area: "150,000 Sq. Ft.",
-      client: "Cultural Heritage Trust",
+      id: "bespoke-interior-suites",
+      title: "The Grand Regal Penthouse & Luxury Interiors",
+      typology: "interior-design",
+      typologyName: "Interior design",
+      location: "Indirapuram & Delhi-NCR",
+      year: "2024",
+      area: "35,000 Sq. Ft.",
+      client: "Private Luxury Residence",
       status: "Completed",
-      thumbnail: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1200&q=80",
+      thumbnail: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
       gallery: [
-        "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1400&q=85"
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85"
       ],
-      description: "Civic monument blending modern sculptural sandstone geometry with state-of-the-art acoustic concert halls and open public art plazas.",
+      description: "Bespoke high-end architectural interior design combining Italian statuario marble, acoustic oak wall paneling, custom designer chandeliers, concealed mood lighting, and bespoke minimalist furniture.",
       highlights: [
-        "Acoustically engineered 1,000-seat auditorium",
-        "Sandstone geometric facade with passive cooling water body",
-        "Open-air public sculpture promenade"
+        "Custom Italian Statuario marble & fluted wood cladding",
+        "Smart architectural mood lighting & integrated automation",
+        "Double-height atrium lounge with bespoke sculptural chandelier",
+        "Curated European luxury furniture & minimalist aesthetics"
       ]
     }
   ],
