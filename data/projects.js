@@ -59,7 +59,9 @@ const siteData = {
     { id: "hospitality", name: "Hospitality & Banquets", count: 26 },
     { id: "healthcare", name: "Healthcare", count: 18 },
     { id: "educational", name: "Educational", count: 20 },
-    { id: "interior-design", name: "Interior design", count: 35 }
+    { id: "interior-design", name: "Interior design", count: 35 },
+    { id: "project-management", name: "Project management", count: 28 },
+    { id: "building-estimation", name: "Building estimation and costing", count: 22 }
   ],
 
   projects: [
@@ -240,6 +242,52 @@ const siteData = {
         "Smart architectural mood lighting & integrated automation",
         "Double-height atrium lounge with bespoke sculptural chandelier",
         "Curated European luxury furniture & minimalist aesthetics"
+      ]
+    },
+    {
+      id: "srs-pmc-turnkey",
+      title: "Comprehensive Project Management & Turnkey Execution",
+      typology: "project-management",
+      typologyName: "Project management",
+      location: "Indirapuram & Delhi-NCR",
+      year: "2024",
+      area: "500,000+ Sq. Ft. Managed",
+      client: "Institutional & Commercial Developers",
+      status: "Active Delivery",
+      thumbnail: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f3?auto=format&fit=crop&w=1400&q=85"
+      ],
+      description: "End-to-end Architectural Project Management Consultancy (PMC) overseeing site construction, BIM coordination, quality audits, milestone tracking, and contractor supervision.",
+      highlights: [
+        "Rigorous construction quality audits and milestone adherence",
+        "Multi-disciplinary vendor & MEP coordination",
+        "BIM Level 3 clash detection and live site monitoring",
+        "Zero-delay agile delivery framework"
+      ]
+    },
+    {
+      id: "srs-costing-estimation",
+      title: "Detailed Architectural Estimation, BOQ & Cost Control",
+      typology: "building-estimation",
+      typologyName: "Building estimation and costing",
+      location: "Delhi-NCR & UP Region",
+      year: "2024",
+      area: "All Scales & Typologies",
+      client: "Private Estates & Commercial Builders",
+      status: "Advisory Service",
+      thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      gallery: [
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
+      ],
+      description: "Precise building estimation, Bill of Quantities (BOQ), rate analysis, structural material budgeting, and value engineering ensuring optimal project expenditure.",
+      highlights: [
+        "Accurate itemized Bill of Quantities (BOQ)",
+        "Material rate analysis and budget forecasting",
+        "Structural value engineering saving 10-15% cost",
+        "Cash flow scheduling and contractor payment audits"
       ]
     }
   ],
