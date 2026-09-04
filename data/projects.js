@@ -244,9 +244,9 @@ const siteData = {
   ],
 
   scrumProcess: {
-    title: "SRS SCRUM",
-    tagline: "The World's First Agile Architectural Delivery Framework",
-    shortDescription: "We are the first architectural firm in the world to follow a unique SCRUM process to design and deliver architectural designs efficiently and quickly, reducing costs and improving quality. This approach has set us apart as a top architecture practice.",
+    title: "SRS ARCHITECTS Process",
+    tagline: "Agile Architectural Delivery & Sprint Design Framework",
+    shortDescription: "We are the first architectural firm in the region to follow a unique SRS Architects process to design and deliver architectural designs efficiently and quickly, reducing costs and improving quality. This approach has set us apart as a top architecture practice.",
     phases: [
       {
         step: "01",
