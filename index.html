@@ -108,36 +108,57 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer with Sub-menus -->
+  <!-- Mobile Drawer with Accordion Expand on Click -->
   <div class="mobile-drawer" id="mobileDrawer">
-    <div>
-      <a href="#firm" class="mobile-nav-link">FIRM</a>
-      <ul class="mobile-sub-menu">
+    
+    <!-- FIRM Accordion -->
+    <div class="mobile-accordion-item">
+      <button class="mobile-accordion-trigger" data-target="mobileFirmSub" aria-expanded="false">
+        <span>FIRM</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <ul class="mobile-sub-menu" id="mobileFirmSub">
         <li><a href="#firm" class="mobile-sub-link">Profile & Philosophy</a></li>
         <li><a href="#scrum" class="mobile-sub-link">SCRUM Process</a></li>
         <li><a href="#team" class="mobile-sub-link">Leadership Team</a></li>
+        <li><a href="#expertise" class="mobile-sub-link">Services</a></li>
+        <li><a href="#firm" class="mobile-sub-link">History</a></li>
+        <li><a href="#media" class="mobile-sub-link">Key Clients</a></li>
       </ul>
     </div>
 
-    <div>
-      <a href="#expertise" class="mobile-nav-link">EXPERTISE</a>
-      <ul class="mobile-sub-menu">
+    <!-- EXPERTISE Accordion -->
+    <div class="mobile-accordion-item">
+      <button class="mobile-accordion-trigger" data-target="mobileExpertiseSub" aria-expanded="false">
+        <span>EXPERTISE</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <ul class="mobile-sub-menu" id="mobileExpertiseSub">
         <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('residential')">Self Redevelopment</a></li>
         <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('healthcare')">Healthcare</a></li>
         <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('educational')">Educational</a></li>
         <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('hospitality')">Hospitality</a></li>
         <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('landscape')">Landscape</a></li>
+        <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('commercial')">Project Management Consultancy</a></li>
       </ul>
     </div>
 
-    <div>
-      <a href="#projects" class="mobile-nav-link">PROJECTS</a>
-      <ul class="mobile-sub-menu">
+    <!-- PROJECTS Accordion -->
+    <div class="mobile-accordion-item">
+      <button class="mobile-accordion-trigger" data-target="mobileProjectsSub" aria-expanded="false">
+        <span>PROJECTS</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <ul class="mobile-sub-menu" id="mobileProjectsSub">
         <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('hospitality')">Hospitality</a></li>
         <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('healthcare')">Healthcare</a></li>
         <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('commercial')">Commercial</a></li>
         <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('residential')">Residential</a></li>
         <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('urban-planning')">Urban Planning</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('educational')">Educational</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('residential')">Redevelopment</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('culture')">Culture and leisure</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('urban-planning')">Community Development</a></li>
       </ul>
     </div>
 

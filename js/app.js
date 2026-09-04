@@ -498,14 +498,48 @@ function initHeaderScrollSpy() {
 function initMobileNav() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-sub-link');
+  const accordionTriggers = document.querySelectorAll('.mobile-accordion-trigger');
 
   if (!menuToggle || !mobileDrawer) return;
 
+  // Toggle drawer open/close
   menuToggle.addEventListener('click', () => {
     mobileDrawer.classList.toggle('open');
   });
 
+  // Accordion Expand on Click (Matches User Request)
+  accordionTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const targetId = trigger.getAttribute('data-target');
+      const targetMenu = document.getElementById(targetId);
+      const isExpanded = trigger.classList.contains('active');
+
+      // Optional: Close other accordions
+      accordionTriggers.forEach(otherTrigger => {
+        if (otherTrigger !== trigger) {
+          otherTrigger.classList.remove('active');
+          const otherId = otherTrigger.getAttribute('data-target');
+          const otherMenu = document.getElementById(otherId);
+          if (otherMenu) otherMenu.classList.remove('expanded');
+        }
+      });
+
+      // Toggle current accordion
+      if (isExpanded) {
+        trigger.classList.remove('active');
+        if (targetMenu) targetMenu.classList.remove('expanded');
+      } else {
+        trigger.classList.add('active');
+        if (targetMenu) targetMenu.classList.add('expanded');
+      }
+    });
+  });
+
+  // Close drawer on link click
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileDrawer.classList.remove('open');
