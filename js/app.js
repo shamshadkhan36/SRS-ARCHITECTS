@@ -3,6 +3,7 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  initSplashScreen();
   initHeroCarousel();
   initTypologyFilter();
   initProjectsGallery();
@@ -12,6 +13,40 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScrollSpy();
   initMobileNav();
 });
+
+/* --------------------------------------------------------------------------
+   0. SPLASH SCREEN INTRO (Matches Screenshot 3)
+   -------------------------------------------------------------------------- */
+function initSplashScreen() {
+  const splash = document.getElementById('splashScreen');
+  const skipBtn = document.getElementById('splashSkipBtn');
+  if (!splash) return;
+
+  // Lock scroll during splash
+  document.body.style.overflow = 'hidden';
+
+  const dismissSplash = () => {
+    splash.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
+  // Auto-dismiss after 2 seconds
+  const timer = setTimeout(dismissSplash, 2100);
+
+  // Allow instant skip on click
+  if (skipBtn) {
+    skipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      clearTimeout(timer);
+      dismissSplash();
+    });
+  }
+
+  splash.addEventListener('click', () => {
+    clearTimeout(timer);
+    dismissSplash();
+  });
+}
 
 /* --------------------------------------------------------------------------
    1. HERO CAROUSEL ENGINE
