@@ -3,8 +3,6 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initSplashScreen();
-  initHeroCarousel();
   initTypologyFilter();
   initProjectsGallery();
   initModals();
@@ -15,165 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   0. SPLASH SCREEN INTRO (Matches Screenshot 3)
-   -------------------------------------------------------------------------- */
-function initSplashScreen() {
-  const splash = document.getElementById('splashScreen');
-  const skipBtn = document.getElementById('splashSkipBtn');
-  if (!splash) return;
-
-  // Lock scroll during splash
-  document.body.style.overflow = 'hidden';
-
-  const dismissSplash = () => {
-    splash.classList.add('hidden');
-    document.body.style.overflow = '';
-  };
-
-  // Auto-dismiss after 2 seconds
-  const timer = setTimeout(dismissSplash, 2100);
-
-  // Allow instant skip on click
-  if (skipBtn) {
-    skipBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      clearTimeout(timer);
-      dismissSplash();
-    });
-  }
-
-  splash.addEventListener('click', () => {
-    clearTimeout(timer);
-    dismissSplash();
-  });
-}
-
-/* --------------------------------------------------------------------------
-   1. HERO CAROUSEL ENGINE
-   -------------------------------------------------------------------------- */
-let currentSlideIndex = 0;
-let carouselInterval = null;
-const slides = siteData.heroSlides;
-
-function initHeroCarousel() {
-  const carouselContainer = document.getElementById('heroCarousel');
-  const indicatorsContainer = document.getElementById('carouselIndicators');
-  const prevBtn = document.getElementById('sliderPrevBtn');
-  const nextBtn = document.getElementById('sliderNextBtn');
-
-  if (!carouselContainer || !slides.length) return;
-
-  // Render slides
-  carouselContainer.innerHTML = slides.map((slide, index) => `
-    <div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
-      <div class="hero-image-wrapper">
-        <img src="${slide.image}" alt="${slide.title}" class="hero-image" loading="${index === 0 ? 'eager' : 'lazy'}">
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-content">
-        <span class="hero-badge">${slide.badge || slide.category}</span>
-        <h1 class="hero-title">${slide.title}</h1>
-        <p class="hero-subtitle">${slide.subtitle}</p>
-        <div class="hero-actions">
-          <button class="btn-hero" onclick="openHeroProject('${slide.id}')">
-            <span>Explore Project</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          <a href="tel:07303415617" class="btn-hero-call">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <span>Call 073034 15617</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  `).join('');
-
-  // Render indicators
-  if (indicatorsContainer) {
-    indicatorsContainer.innerHTML = slides.map((_, index) => `
-      <button class="indicator-dot ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})" aria-label="Slide ${index + 1}"></button>
-    `).join('');
-  }
-
-  // Event Listeners
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-  });
-
-  // Touch Swipe
-  let touchStartX = 0;
-  carouselContainer.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  carouselContainer.addEventListener('touchend', (e) => {
-    const touchEndX = e.changedTouches[0].screenX;
-    if (touchStartX - touchEndX > 50) nextSlide();
-    if (touchEndX - touchStartX > 50) prevSlide();
-  }, { passive: true });
-
-  // Auto play
-  startAutoPlay();
-  carouselContainer.addEventListener('mouseenter', stopAutoPlay);
-  carouselContainer.addEventListener('mouseleave', startAutoPlay);
-}
-
-function updateSlideView() {
-  const slideElements = document.querySelectorAll('.hero-slide');
-  const dotElements = document.querySelectorAll('.indicator-dot');
-
-  slideElements.forEach((el, idx) => {
-    el.classList.toggle('active', idx === currentSlideIndex);
-  });
-
-  dotElements.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === currentSlideIndex);
-  });
-}
-
-function nextSlide() {
-  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-  updateSlideView();
-}
-
-function prevSlide() {
-  currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-  updateSlideView();
-}
-
-function goToSlide(index) {
-  currentSlideIndex = index;
-  updateSlideView();
-}
-
-function startAutoPlay() {
-  stopAutoPlay();
-  carouselInterval = setInterval(nextSlide, 6500);
-}
-
-function stopAutoPlay() {
-  if (carouselInterval) clearInterval(carouselInterval);
-}
-
-window.openHeroProject = function(slideId) {
-  const mappedProjects = {
-    'slide-1': 'grand-royal-pavilion',
-    'slide-2': 'srs-biophilic-hospital',
-    'slide-3': 'indirapuram-green-walkway',
-    'slide-4': 'indirapuram-luxury-villas'
-  };
-  const projectId = mappedProjects[slideId] || 'grand-royal-pavilion';
-  openProjectModal(projectId);
-};
-
-
-/* --------------------------------------------------------------------------
-   2. TYPOLOGY FILTER & PROJECTS GRID (Screenshot 4)
+   1. TYPOLOGY STACK FILTER (Matches User Image Directly Below Hero)
    -------------------------------------------------------------------------- */
 let activeTypology = 'all';
 
@@ -183,33 +23,39 @@ function initTypologyFilter() {
 
   const typologies = siteData.typologies;
   
-  typologyGrid.innerHTML = `
-    <div class="typology-item">
-      <button class="typology-btn ${activeTypology === 'all' ? 'active' : ''}" onclick="setTypologyFilter('all', this)">
-        All Projects
+  // Render clean, centered vertical stack matching user screenshot:
+  // Residential, Healthcare, Landscape, Urban Planning, Educational, Hospitality, Commercial, Culture
+  typologyGrid.innerHTML = typologies.map((t, idx) => `
+    <div class="typology-stack-item">
+      <button class="typology-stack-btn ${idx === 0 ? 'active' : ''}" onclick="setTypologyFilter('${t.id}', this, '${t.name}')">
+        <span>${t.name}</span>
       </button>
     </div>
-    ${typologies.map(t => `
-      <div class="typology-item">
-        <button class="typology-btn ${activeTypology === t.id ? 'active' : ''}" onclick="setTypologyFilter('${t.id}', this)">
-          ${t.name}
-          <span class="count-badge">${t.count}</span>
-        </button>
-      </div>
-    `).join('')}
-  `;
+  `).join('');
+
+  // Default to first typology or all
+  activeTypology = typologies[0].id;
+  updateActiveCategoryHeading(typologies[0].name);
 }
 
-window.setTypologyFilter = function(typologyId, btnElement) {
+window.setTypologyFilter = function(typologyId, btnElement, categoryName) {
   activeTypology = typologyId;
   
-  document.querySelectorAll('.typology-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.typology-stack-btn').forEach(btn => btn.classList.remove('active'));
   if (btnElement) {
     btnElement.classList.add('active');
   }
 
+  updateActiveCategoryHeading(categoryName || typologyId);
   renderProjects();
 };
+
+function updateActiveCategoryHeading(name) {
+  const heading = document.getElementById('activeTypologyHeading');
+  if (heading) {
+    heading.textContent = `${name} Architecture`;
+  }
+}
 
 function initProjectsGallery() {
   renderProjects();
@@ -225,8 +71,9 @@ function renderProjects() {
 
   if (filteredProjects.length === 0) {
     container.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--color-gray-mid);">
-        <p style="font-size: 1.25rem;">Curating featured works in this typology. Contact our Indirapuram studio to view the full design portfolio.</p>
+      <div style="grid-column: 1/-1; text-align: center; padding: 3rem 1rem; color: var(--color-gray-mid);">
+        <p style="font-size: 1.15rem;">Curating featured works in this typology. Contact our Indirapuram studio to view the complete architectural portfolio archive.</p>
+        <a href="#contact" class="btn-submit-form" style="display: inline-block; width: auto; margin-top: 1.5rem; padding: 0.75rem 1.5rem;">Inquire About This Typology</a>
       </div>
     `;
     return;
@@ -252,7 +99,7 @@ function renderProjects() {
 
 
 /* --------------------------------------------------------------------------
-   3. MODAL LOGIC (Project Detail & SCRUM Explainer)
+   2. MODALS (Project Detail & SCRUM Explainer)
    -------------------------------------------------------------------------- */
 function initModals() {
   const scrumTrigger = document.getElementById('scrumModalTrigger');
@@ -417,7 +264,7 @@ window.closeModal = function(modalId) {
 
 
 /* --------------------------------------------------------------------------
-   4. MULTI-OFFICE LOCATOR SWITCHER (Indirapuram, Ghaziabad & NCR)
+   3. MULTI-OFFICE LOCATOR SWITCHER
    -------------------------------------------------------------------------- */
 function initOfficeSwitcher() {
   const tabsContainer = document.getElementById('officeTabs');
@@ -453,7 +300,7 @@ function renderOfficeCard(office) {
       <h3 class="office-city-title" style="margin-bottom: 0;">${office.city}</h3>
       <span class="rating-badge-pill">★ 4.7 (11 Reviews)</span>
     </div>
-    <p style="color: var(--color-primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">${office.building}</p>
+    <p style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem;">${office.building}</p>
     
     <div class="office-info-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -464,7 +311,7 @@ function renderOfficeCard(office) {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
       <div>
         <a href="tel:${office.phone}" style="font-weight: 700; color: var(--color-dark); font-size: 1.05rem;">${office.phone}</a>
-        <span style="color: var(--color-gray-mid); font-size: 0.85rem; margin-left: 0.5rem;">(Direct Studio Line)</span>
+        <span style="color: var(--color-gray-mid); font-size: 0.85rem; margin-left: 0.5rem;">(Direct Line)</span>
       </div>
     </div>
 
@@ -487,7 +334,7 @@ function renderOfficeCard(office) {
 
 
 /* --------------------------------------------------------------------------
-   5. CONTACT & INQUIRY FORM
+   4. CONTACT & INQUIRY FORM
    -------------------------------------------------------------------------- */
 function initContactForm() {
   const form = document.getElementById('consultationForm');
@@ -499,7 +346,7 @@ function initContactForm() {
     const name = document.getElementById('formName')?.value || 'Client';
     const typology = document.getElementById('formTypology')?.value;
 
-    showToast(`Thank you, ${name}! Your architectural inquiry for ${typology} has been received. SRS ARCHITECTS will connect with you shortly at 073034 15617.`);
+    showToast(`Thank you, ${name}! Your architectural inquiry for ${typology} has been received. SRS ARCHITECTS will connect with you at 073034 15617.`);
     form.reset();
   });
 }
@@ -518,7 +365,7 @@ window.openConsultationModal = function(projectName) {
 
 
 /* --------------------------------------------------------------------------
-   6. HEADER SCROLL & ACTIVE LINK SPY
+   5. HEADER SCROLL & MOBILE NAV
    -------------------------------------------------------------------------- */
 function initHeaderScrollSpy() {
   const header = document.querySelector('.site-header');
@@ -529,7 +376,7 @@ function initHeaderScrollSpy() {
     const scrollY = window.scrollY;
 
     if (header) {
-      header.classList.toggle('scrolled', scrollY > 40);
+      header.classList.toggle('scrolled', scrollY > 30);
     }
 
     sections.forEach(sec => {
@@ -550,10 +397,6 @@ function initHeaderScrollSpy() {
   }, { passive: true });
 }
 
-
-/* --------------------------------------------------------------------------
-   7. MOBILE NAVIGATION DRAWER
-   -------------------------------------------------------------------------- */
 function initMobileNav() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
@@ -572,10 +415,6 @@ function initMobileNav() {
   });
 }
 
-
-/* --------------------------------------------------------------------------
-   8. TOAST NOTIFICATIONS HELPER
-   -------------------------------------------------------------------------- */
 function showToast(message) {
   let toast = document.getElementById('siteToast');
   if (!toast) {
