@@ -14,20 +14,44 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   0. HERO VIDEO AUTOPLAY HANDLER
+   0. HERO VIDEO AUTOPLAY HANDLER (Mobile & Desktop)
    -------------------------------------------------------------------------- */
 function initHeroVideo() {
   const video = document.querySelector('.hero-media-video');
-  if (video) {
+  if (!video) return;
+
+  // Crucial mobile video settings
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  const startPlayback = () => {
     video.muted = true;
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
+    const promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(() => {
+        // Fallback for strict mobile power-saving policies
         video.muted = true;
-        video.play();
+        document.addEventListener('touchstart', () => {
+          video.play().catch(() => {});
+        }, { once: true, passive: true });
+        document.addEventListener('scroll', () => {
+          video.play().catch(() => {});
+        }, { once: true, passive: true });
       });
     }
-  }
+  };
+
+  startPlayback();
+
+  // Resume play when window gains focus or tab becomes visible
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && video.paused) {
+      startPlayback();
+    }
+  });
 }
 
 /* --------------------------------------------------------------------------

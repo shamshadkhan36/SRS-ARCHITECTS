@@ -1649,6 +1649,7 @@ img, video {
 
   .home-hero-banner {
     height: 380px;
+    margin-top: 75px;
   }
 
   .hero-slogan-title {
@@ -1695,18 +1696,70 @@ img, video {
 }
 
 @media (max-width: 768px) {
+  .nav-wrapper {
+    height: 70px;
+    padding: 0 1.25rem;
+  }
+
+  .mobile-drawer {
+    top: 70px;
+    height: calc(100vh - 70px);
+    padding: 2rem 1.5rem;
+  }
+
   .home-hero-banner {
-    height: 300px;
+    height: 330px;
+    min-height: 290px;
+    margin-top: 70px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-media-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .hero-media-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .hero-headline-box {
+    padding: 0 1rem 1.5rem;
   }
 
   .hero-slogan-title {
-    font-size: 2.15rem;
+    font-size: 2.25rem;
+    line-height: 1.05;
     letter-spacing: 0.02em;
   }
 
+  .home-typology-showcase {
+    padding: 2.5rem 1rem 3.5rem;
+  }
+
+  .typology-list-wrapper {
+    margin-bottom: 2.5rem;
+  }
+
+  .typology-stack-list {
+    gap: 0.9rem;
+  }
+
   .typology-stack-btn {
-    font-size: 1.55rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 1.85rem;
+    font-weight: 300;
+    padding: 0.15rem 0.5rem;
   }
 
   .projects-grid {
@@ -1731,5 +1784,19 @@ img, video {
 
   .highlights-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-banner {
+    height: 290px;
+  }
+
+  .hero-slogan-title {
+    font-size: 1.95rem;
+  }
+
+  .typology-stack-btn {
+    font-size: 1.65rem;
   }
 }
