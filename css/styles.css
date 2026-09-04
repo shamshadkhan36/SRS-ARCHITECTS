@@ -122,7 +122,19 @@ img, video {
 .brand-logo-link {
   display: flex;
   align-items: center;
+  gap: 0.65rem;
   text-decoration: none;
+}
+
+.brand-logo-emblem {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-link:hover .brand-logo-emblem {
+  transform: scale(1.08) rotate(3deg);
 }
 
 .brand-svg-logo {
@@ -872,6 +884,18 @@ img, video {
   margin-bottom: 2rem;
 }
 
+.interlude-logo-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 1.25rem;
+  transition: transform var(--transition-normal);
+}
+
+.interlude-logo-box:hover .interlude-logo-img {
+  transform: scale(1.06);
+}
+
 .interlude-logo-outline {
   font-family: var(--font-display);
   font-size: 3.5rem;
@@ -1404,6 +1428,18 @@ img, video {
   gap: 1rem;
 }
 
+.footer-brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-brand-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
 .footer-brand-logo {
   font-family: var(--font-display);
   font-size: 2.25rem;
@@ -1412,7 +1448,17 @@ img, video {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--color-primary);
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 0.9;
+}
+
+.footer-brand-sub {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  margin-top: 3px;
 }
 
 .footer-tagline {
