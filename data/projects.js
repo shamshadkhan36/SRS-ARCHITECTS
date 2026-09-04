@@ -383,17 +383,17 @@ const siteData = {
       mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.834415865917!2d77.3697!3d28.6347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf00000000001%3A0x0!2sOne%20Square%2C%20Shakti%20Khand%20III%2C%20Indirapuram%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201014!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
     },
     {
-      id: "noida-studio",
-      city: "Noida Studio (NCR)",
-      building: "Corporate Hub",
-      address: "Sector 62, Noida, Uttar Pradesh 201309",
+      id: "dumariaganj-studio",
+      city: "Dumariaganj (Siddharthnagar Studio)",
+      building: "Branch Architectural Studio",
+      address: "Dumariaganj, District- Siddharthnagar, Uttar Pradesh 272193",
       phone: "073034 15617",
       phoneIntl: "+91 73034 15617",
       whatsapp: "917303415617",
-      email: "noida@srsarchitects.in",
-      hours: "Mon - Sat: 9:30 AM - 6:30 PM",
+      email: "siddharthnagar@srsarchitects.in",
+      hours: "Mon - Sat: 9:30 AM - 6:30 PM (Open · Closes 6:30 pm)",
       ratingText: "4.7 ★★★★★ (Google Verified)",
-      mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.36!3d28.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzEyLjAiTiA3N8KwMjEnMzYuMCJF!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+      mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56847.45612345678!2d82.68!3d27.20!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3997100000000001%3A0x0!2sDumariaganj%2C%20Uttar%20Pradesh%20272193!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
     }
   ]
 };

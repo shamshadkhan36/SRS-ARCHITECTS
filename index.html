@@ -161,8 +161,12 @@
       <div class="hero-media-overlay"></div>
     </div>
 
-    <!-- Video Play/Pause & Sound Toggle Controls -->
+    <!-- Video Play/Pause & Facebook Video Controls -->
     <div class="hero-video-controls">
+      <button class="video-control-btn" onclick="openFbVideoModal()" style="background: #1877F2; border-color: #1877F2;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        <span>Watch Facebook Video Post</span>
+      </button>
       <button class="video-control-btn" id="videoPlayPauseBtn" aria-label="Play or Pause Video">
         <svg viewBox="0 0 24 24" fill="currentColor" id="playPauseIcon"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
         <span id="playPauseText">Pause</span>
@@ -510,11 +514,12 @@
         </div>
 
         <div class="footer-column">
-          <h4>Studio Details</h4>
+          <h4>Studio Locations</h4>
           <ul class="footer-nav-list">
-            <li><a href="#contact" class="footer-nav-link">One Square, Indirapuram</a></li>
-            <li><a href="tel:07303415617" class="footer-nav-link">Tel: 073034 15617</a></li>
-            <li><a href="#contact" class="footer-nav-link">Hours: Closes 6:30 pm</a></li>
+            <li><a href="#contact" class="footer-nav-link">HQ: One Square, Indirapuram, Ghaziabad</a></li>
+            <li><a href="#contact" class="footer-nav-link">Studio 2: Dumariaganj, Siddharthnagar, UP</a></li>
+            <li><a href="tel:07303415617" class="footer-nav-link">Direct Line: 073034 15617</a></li>
+            <li><a href="#contact" class="footer-nav-link">Hours: Mon - Sat (Closes 6:30 pm)</a></li>
           </ul>
         </div>
 
@@ -529,7 +534,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 SRS ARCHITECTS (एसआरएस आर्किटेक्ट्स). All rights reserved. Rated 4.7 ★★★★★ in Indirapuram, Ghaziabad.</p>
+        <p>&copy; 2026 SRS ARCHITECTS (एसआरएस आर्किटेक्ट्स). All rights reserved. Studios in Indirapuram, Ghaziabad & Dumariaganj, Siddharthnagar, UP.</p>
         <div class="footer-social-links">
           <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
           <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
@@ -542,13 +547,25 @@
 
   <!-- ==========================================================================
        MODALS
-       ========================================================================== -->
+       ========================================================================= -->
   <div class="modal-backdrop" id="projectModal">
     <div class="modal-container" id="projectModalContainer"></div>
   </div>
 
   <div class="modal-backdrop" id="scrumModal">
     <div class="modal-container" id="scrumModalContainer"></div>
+  </div>
+
+  <!-- Facebook Video Player Modal -->
+  <div class="modal-backdrop" id="fbVideoModal">
+    <div class="modal-container" style="max-width: 860px; background: #000; padding: 0;">
+      <button class="modal-close-btn" onclick="closeModal('fbVideoModal')" style="background: rgba(255,255,255,0.2); color: #fff;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="fb-video-wrapper">
+        <iframe class="fb-video-iframe" src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fstory.php%3Fstory_fbid%3D254332710035464%26id%3D100063762102685&show_text=false&autoplay=true" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
   </div>
 
   <!-- Scripts -->

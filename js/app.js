@@ -344,6 +344,14 @@ window.openScrumModal = function() {
   document.body.style.overflow = 'hidden';
 };
 
+window.openFbVideoModal = function() {
+  const modal = document.getElementById('fbVideoModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
 window.closeModal = function(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {

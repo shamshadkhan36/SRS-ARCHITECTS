@@ -471,14 +471,15 @@ img, video {
   z-index: 10;
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .video-control-btn {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(8px);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.45rem 0.95rem;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -486,19 +487,40 @@ img, video {
   letter-spacing: 0.08em;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   transition: all var(--transition-fast);
   cursor: pointer;
 }
 
-.video-control-btn:hover {
+.video-control-btn:hover,
+.video-control-btn.active {
   background: var(--color-primary);
   border-color: var(--color-primary);
+  color: #ffffff;
 }
 
 .video-control-btn svg {
   width: 14px;
   height: 14px;
+}
+
+/* Facebook Video Modal Styling */
+.fb-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: #000;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.fb-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 

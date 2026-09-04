@@ -1,17 +1,10 @@
-# SRS ARCHITECTS (एसआरएस आर्किटेक्ट्स)
-
-> Official website and digital portfolio for **SRS ARCHITECTS**, a 4.7★ rated architecture and urban planning practice based in One Square, Indirapuram, Ghaziabad.
-
-![SRS ARCHITECTS](https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85)
-
----
-
-## 🏛️ Firm Overview
+## 🏛️ Firm Overview & Locations
 
 - **Firm Name**: SRS ARCHITECTS (एसआरएस आर्किटेक्ट्स)
-- **Rating**: 4.7 ★★★★★ (11 Google Reviews)
-- **Studio Address**: Office No. 10F, First Floor, One Square, 68/1, Shakti Khand III, Indirapuram, Ghaziabad, Uttar Pradesh 201014
-- **Direct Phone**: [073034 15617](tel:07303415617) / [+91 73034 15617](tel:+917303415617)
+- **Google Rating**: 4.7 ★★★★★ (11 Google Reviews)
+- **Head Office**: Office No. 10F, First Floor, One Square, 68/1, Shakti Khand III, Indirapuram, Ghaziabad, Uttar Pradesh 201014
+- **Branch Studio**: Dumariaganj, District- Siddharthnagar, Uttar Pradesh 272193
+- **Direct Line**: [073034 15617](tel:07303415617) / [+91 73034 15617](tel:+917303415617)
 - **Operating Hours**: Mon - Sat: 9:30 AM - 6:30 PM (Closes 6:30 pm)
 
 ---
