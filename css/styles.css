@@ -1171,26 +1171,64 @@ img, video {
 
 .office-tabs {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: 0.5rem;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.85rem;
 }
 
 .office-tab-btn {
-  font-size: 0.85rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-subtle);
+  border: 1.5px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.office-tab-region {
+  font-family: var(--font-headline);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-dark);
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+  transition: color var(--transition-fast);
+}
+
+.office-tab-city {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.5rem 1rem;
   color: var(--color-gray-mid);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  line-height: 1.3;
+  transition: color var(--transition-fast);
+}
+
+.office-tab-btn:hover {
+  border-color: var(--color-primary);
+  background-color: #ffffff;
 }
 
 .office-tab-btn.active {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 14px rgba(240, 100, 52, 0.28);
+}
+
+.office-tab-btn.active .office-tab-region,
+.office-tab-btn.active .office-tab-city {
+  color: #ffffff;
 }
 
 .office-card-display {

@@ -393,8 +393,9 @@ function initOfficeSwitcher() {
   const offices = siteData.offices;
 
   tabsContainer.innerHTML = offices.map((office, idx) => `
-    <button class="office-tab-btn ${idx === 0 ? 'active' : ''}" onclick="selectOffice('${office.id}', this)">
-      ${office.city.split('(')[0]}
+    <button class="office-tab-btn ${idx === 0 ? 'active' : ''}" onclick="selectOffice('${office.id}', this)" aria-label="${office.region} - ${office.studioName}">
+      <span class="office-tab-region">${office.region}</span>
+      <span class="office-tab-city">${office.studioName}</span>
     </button>
   `).join('');
 

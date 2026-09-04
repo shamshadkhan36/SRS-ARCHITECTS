@@ -371,6 +371,8 @@ const siteData = {
   offices: [
     {
       id: "indirapuram-hq",
+      region: "DELHI NCR",
+      studioName: "INDIRAPURAM, GHAZIABAD",
       city: "Indirapuram, Ghaziabad (Head Office)",
       building: "Located in: One Square",
       address: "Office No. 10F, First Floor, One Square, 68/1, Shakti Khand III, Indirapuram, Ghaziabad, Uttar Pradesh 201014",
@@ -384,6 +386,8 @@ const siteData = {
     },
     {
       id: "dumariaganj-studio",
+      region: "UTTAR PRADESH",
+      studioName: "DUMARIAGANJ",
       city: "Dumariaganj (Siddharthnagar Studio)",
       building: "Branch Architectural Studio",
       address: "Dumariaganj, District- Siddharthnagar, Uttar Pradesh 272193",
