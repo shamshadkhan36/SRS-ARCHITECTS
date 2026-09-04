@@ -1,8 +1,8 @@
 /* ==========================================================================
-   SRS ARCHITECTS - MODERN ARCHITECTURAL DESIGN SYSTEM
+   SRS / IMK ARCHITECTS - MODERN ARCHITECTURAL DESIGN SYSTEM
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --color-primary: #f06434;
@@ -10,16 +10,17 @@
   --color-primary-light: #ffede6;
   --color-dark: #121212;
   --color-dark-light: #222222;
-  --color-gray-dark: #333333;
+  --color-gray-dark: #2c2c2c;
   --color-gray-mid: #666666;
   --color-gray-light: #8e8e93;
-  --color-gray-soft: #f4f4f4;
+  --color-gray-soft: #f5f5f5;
   --color-border: #e6e6e6;
   --color-white: #ffffff;
   --color-bg-subtle: #fafaf9;
   
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-headline: 'Bebas Neue', 'Outfit', sans-serif;
   --font-serif: 'Cinzel', serif;
   
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -78,7 +79,7 @@ button {
   font-family: inherit;
 }
 
-img {
+img, video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -92,7 +93,7 @@ img {
 }
 
 /* ==========================================================================
-   HEADER & NAVIGATION
+   HEADER & NAVIGATION (Matches Reference Screenshot)
    ========================================================================== */
 
 .site-header {
@@ -101,14 +102,12 @@ img {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(12px);
+  background-color: #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   transition: all var(--transition-normal);
 }
 
 .site-header.scrolled {
-  background-color: rgba(255, 255, 255, 0.99);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
@@ -116,7 +115,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 75px;
+  height: 80px;
   padding: 0 2rem;
 }
 
@@ -134,9 +133,9 @@ img {
 
 .logo-outline-text {
   font-family: var(--font-display);
-  font-size: 2.1rem;
+  font-size: 2.3rem;
   font-weight: 800;
-  line-height: 0.9;
+  line-height: 0.88;
   letter-spacing: 0.08em;
   color: transparent;
   -webkit-text-stroke: 1.5px var(--color-primary);
@@ -145,12 +144,12 @@ img {
 
 .logo-subtext {
   font-family: var(--font-sans);
-  font-size: 0.58rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 700;
   letter-spacing: 0.28em;
   color: var(--color-dark);
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .main-nav {
@@ -165,6 +164,11 @@ img {
   align-items: center;
 }
 
+.nav-item {
+  position: relative;
+  padding: 1.5rem 0;
+}
+
 .nav-link {
   font-family: var(--font-sans);
   font-size: 0.8125rem;
@@ -175,6 +179,9 @@ img {
   position: relative;
   padding: 0.5rem 0;
   transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .nav-link:hover,
@@ -190,6 +197,85 @@ img {
   width: 100%;
   height: 2px;
   background-color: var(--color-primary);
+}
+
+/* Dropdown Menu (Matches Screenshot 1, 2, 3) */
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.25s;
+  z-index: 1100;
+}
+
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #333333;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-link:hover {
+  background-color: #f9f9f8;
+  color: var(--color-primary);
+  padding-left: 1.45rem;
+}
+
+/* Mobile Dropdown Sub-lists */
+.mobile-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobile-sub-menu {
+  list-style: none;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-sub-link {
+  font-size: 0.95rem;
+  color: var(--color-gray-mid);
+  padding: 0.35rem 0;
+}
+
+.mobile-sub-link:hover {
+  color: var(--color-primary);
 }
 
 .header-actions {
@@ -264,10 +350,10 @@ img {
 /* Mobile Drawer */
 .mobile-drawer {
   position: fixed;
-  top: 75px;
+  top: 80px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 80px);
   background-color: var(--color-white);
   padding: 2.5rem 2rem;
   display: flex;
@@ -300,19 +386,19 @@ img {
 
 
 /* ==========================================================================
-   HOME HERO BANNER (Matches User Image: "CREATING PLACES WHERE PEOPLE THRIVE")
+   HERO VIDEO BANNER (Matches User Image: "CREATING PLACES WHERE PEOPLE THRIVE")
    ========================================================================== */
 
 .home-hero-banner {
   position: relative;
   width: 100%;
-  height: 480px;
-  margin-top: 75px;
+  height: 460px;
+  margin-top: 80px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  background-color: #1a221b;
+  background-color: #121813;
 }
 
 .hero-media-wrapper {
@@ -323,12 +409,11 @@ img {
   height: 100%;
 }
 
-.hero-media-img {
+.hero-media-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.02);
 }
 
 .hero-media-overlay {
@@ -339,9 +424,9 @@ img {
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.45) 50%,
-    rgba(0, 0, 0, 0.75) 100%
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.8) 100%
   );
 }
 
@@ -349,52 +434,44 @@ img {
   position: relative;
   z-index: 10;
   text-align: center;
-  padding: 2rem;
-  max-width: 1000px;
+  padding: 0 1.5rem 2.25rem;
+  width: 100%;
+  max-width: 1100px;
 }
 
 .hero-slogan-title {
-  font-family: var(--font-display);
-  font-size: 3.25rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-family: var(--font-headline);
+  font-size: 3.75rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   color: #ffffff;
-  line-height: 1.15;
+  line-height: 1;
   text-transform: uppercase;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-  margin-bottom: 0.75rem;
-}
-
-.hero-slogan-sub {
-  font-size: 1rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
 }
 
 
 /* ==========================================================================
-   HOME TYPOLOGY STACK SHOWCASE (Matches User Image Directly Below Hero)
+   TYPOLOGY VERTICAL STACK (Matches User Screenshot Exactly)
    ========================================================================== */
 
 .home-typology-showcase {
-  padding: 4rem 1.5rem 5rem;
+  padding: 3.5rem 1.5rem 4.5rem;
   background-color: var(--color-white);
   text-align: center;
 }
 
 .typology-list-wrapper {
-  max-width: 900px;
-  margin: 0 auto 4rem;
+  max-width: 700px;
+  margin: 0 auto 3.5rem;
 }
 
 .typology-stack-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.1rem;
 }
 
 .typology-stack-item {
@@ -403,13 +480,13 @@ img {
 
 .typology-stack-btn {
   font-family: var(--font-sans);
-  font-size: 2.25rem;
-  font-weight: 400;
-  color: #383838;
+  font-size: 2.15rem;
+  font-weight: 300;
+  color: #2b2b2b;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.4rem 1.5rem;
+  padding: 0.35rem 1.5rem;
   transition: all var(--transition-fast);
   position: relative;
   display: inline-flex;
@@ -426,16 +503,7 @@ img {
 
 .typology-stack-btn.active {
   color: var(--color-primary);
-  font-weight: 700;
-}
-
-.typology-stack-btn .count-badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  background: var(--color-primary-light);
-  color: var(--color-primary);
-  padding: 0.2rem 0.6rem;
-  border-radius: 12px;
+  font-weight: 600;
 }
 
 
@@ -660,7 +728,7 @@ img {
 
 
 /* ==========================================================================
-   MINIMALIST BRAND PHILOSOPHY & STATS (Screenshot 3)
+   MINIMALIST BRAND PHILOSOPHY & STATS
    ========================================================================== */
 
 .brand-interlude-section {
@@ -1580,11 +1648,11 @@ img {
   }
 
   .home-hero-banner {
-    height: 340px;
+    height: 380px;
   }
 
   .hero-slogan-title {
-    font-size: 2.15rem;
+    font-size: 2.85rem;
   }
 
   .typology-stack-btn {
@@ -1628,16 +1696,12 @@ img {
 
 @media (max-width: 768px) {
   .home-hero-banner {
-    height: 280px;
+    height: 300px;
   }
 
   .hero-slogan-title {
-    font-size: 1.65rem;
+    font-size: 2.15rem;
     letter-spacing: 0.02em;
-  }
-
-  .hero-slogan-sub {
-    font-size: 0.75rem;
   }
 
   .typology-stack-btn {

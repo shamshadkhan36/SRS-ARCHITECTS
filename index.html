@@ -26,16 +26,57 @@
         </div>
       </a>
 
-      <!-- Main Navigation -->
+      <!-- Main Navigation with Dropdown Menus (Matches User Screenshots 1, 2, 3) -->
       <nav class="main-nav">
         <ul class="nav-list">
-          <li><a href="#firm" class="nav-link">FIRM</a></li>
-          <li><a href="#expertise" class="nav-link active">EXPERTISE</a></li>
-          <li><a href="#projects" class="nav-link">PROJECTS</a></li>
-          <li><a href="#scrum" class="nav-link">SCRUM</a></li>
-          <li><a href="#media" class="nav-link">MEDIA</a></li>
-          <li><a href="#contact" class="nav-link">CONTACT</a></li>
-          <li><a href="#social-responsibility" class="nav-link">SOCIAL RESPONSIBILITY</a></li>
+          
+          <!-- FIRM Dropdown (Screenshot 1) -->
+          <li class="nav-item">
+            <a href="#firm" class="nav-link">FIRM</a>
+            <ul class="nav-dropdown">
+              <li class="dropdown-item"><a href="#firm" class="dropdown-link">Profile</a></li>
+              <li class="dropdown-item"><a href="#firm" class="dropdown-link">Philosophy</a></li>
+              <li class="dropdown-item"><a href="#scrum" class="dropdown-link">Process</a></li>
+              <li class="dropdown-item"><a href="#expertise" class="dropdown-link">Services</a></li>
+              <li class="dropdown-item"><a href="#firm" class="dropdown-link">History</a></li>
+              <li class="dropdown-item"><a href="#media" class="dropdown-link">Key Clients</a></li>
+              <li class="dropdown-item"><a href="#team" class="dropdown-link">Team</a></li>
+            </ul>
+          </li>
+
+          <!-- EXPERTISE Dropdown (Screenshot 2) -->
+          <li class="nav-item">
+            <a href="#expertise" class="nav-link active">EXPERTISE</a>
+            <ul class="nav-dropdown">
+              <li class="dropdown-item"><a href="#expertise" class="dropdown-link" onclick="setTypologyFilter('residential')">Self Redevelopment</a></li>
+              <li class="dropdown-item"><a href="#expertise" class="dropdown-link" onclick="setTypologyFilter('healthcare')">Healthcare</a></li>
+              <li class="dropdown-item"><a href="#expertise" class="dropdown-link" onclick="setTypologyFilter('educational')">Educational</a></li>
+              <li class="dropdown-item"><a href="#expertise" class="dropdown-link" onclick="setTypologyFilter('hospitality')">Hospitality</a></li>
+              <li class="dropdown-item"><a href="#expertise" class="dropdown-link" onclick="setTypologyFilter('landscape')">Landscape</a></li>
+              <li class="dropdown-item"><a href="#expertise" class="dropdown-link" onclick="setTypologyFilter('commercial')">Project Management Consultancy</a></li>
+            </ul>
+          </li>
+
+          <!-- PROJECTS Dropdown (Screenshot 3) -->
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">PROJECTS</a>
+            <ul class="nav-dropdown">
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('hospitality')">Hospitality</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('healthcare')">Healthcare</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('commercial')">Commercial</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('residential')">Residential</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('urban-planning')">Urban Planning</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('educational')">Educational</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('residential')">Redevelopment</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('culture')">Culture and leisure</a></li>
+              <li class="dropdown-item"><a href="#projects" class="dropdown-link" onclick="setTypologyFilter('urban-planning')">Community Development</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="#scrum" class="nav-link">SCRUM</a></li>
+          <li class="nav-item"><a href="#media" class="nav-link">MEDIA</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">CONTACT</a></li>
+          <li class="nav-item"><a href="#social-responsibility" class="nav-link">SOCIAL RESPONSIBILITY</a></li>
         </ul>
       </nav>
 
@@ -67,31 +108,62 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer with Sub-menus -->
   <div class="mobile-drawer" id="mobileDrawer">
-    <a href="#firm" class="mobile-nav-link">FIRM</a>
-    <a href="#expertise" class="mobile-nav-link">EXPERTISE</a>
-    <a href="#projects" class="mobile-nav-link">PROJECTS</a>
+    <div>
+      <a href="#firm" class="mobile-nav-link">FIRM</a>
+      <ul class="mobile-sub-menu">
+        <li><a href="#firm" class="mobile-sub-link">Profile & Philosophy</a></li>
+        <li><a href="#scrum" class="mobile-sub-link">SCRUM Process</a></li>
+        <li><a href="#team" class="mobile-sub-link">Leadership Team</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <a href="#expertise" class="mobile-nav-link">EXPERTISE</a>
+      <ul class="mobile-sub-menu">
+        <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('residential')">Self Redevelopment</a></li>
+        <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('healthcare')">Healthcare</a></li>
+        <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('educational')">Educational</a></li>
+        <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('hospitality')">Hospitality</a></li>
+        <li><a href="#expertise" class="mobile-sub-link" onclick="setTypologyFilter('landscape')">Landscape</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <a href="#projects" class="mobile-nav-link">PROJECTS</a>
+      <ul class="mobile-sub-menu">
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('hospitality')">Hospitality</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('healthcare')">Healthcare</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('commercial')">Commercial</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('residential')">Residential</a></li>
+        <li><a href="#projects" class="mobile-sub-link" onclick="setTypologyFilter('urban-planning')">Urban Planning</a></li>
+      </ul>
+    </div>
+
     <a href="#scrum" class="mobile-nav-link">SCRUM</a>
     <a href="#media" class="mobile-nav-link">MEDIA</a>
     <a href="#contact" class="mobile-nav-link">CONTACT</a>
     <a href="#social-responsibility" class="mobile-nav-link">SOCIAL RESPONSIBILITY</a>
-    <a href="tel:07303415617" class="mobile-nav-link" style="color: var(--color-primary);">CALL: 073034 15617</a>
+    <a href="tel:07303415617" class="mobile-nav-link" style="color: var(--color-primary); font-weight: 700;">CALL: 073034 15617</a>
   </div>
 
 
   <!-- ==========================================================================
-       HERO BANNER (Matches User Image: "CREATING PLACES WHERE PEOPLE THRIVE")
+       HERO VIDEO BANNER (Matches User Image: "CREATING PLACES WHERE PEOPLE THRIVE")
        ========================================================================== -->
   <section class="home-hero-banner" id="hero">
     <div class="hero-media-wrapper">
-      <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2200&q=85" alt="Creating Places Where People Thrive" class="hero-media-img">
+      <video class="hero-media-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2200&q=85">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-wooden-bridge-in-a-forest-4113-large.mp4" type="video/mp4">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4" type="video/mp4">
+        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2200&q=85" alt="Creating Places Where People Thrive" class="hero-media-video">
+      </video>
       <div class="hero-media-overlay"></div>
     </div>
     
     <div class="hero-headline-box">
       <h1 class="hero-slogan-title">CREATING PLACES WHERE PEOPLE THRIVE</h1>
-      <p class="hero-slogan-sub">SRS ARCHITECTS &bull; Biophilic Architecture &bull; Indirapuram, Ghaziabad</p>
     </div>
   </section>
 

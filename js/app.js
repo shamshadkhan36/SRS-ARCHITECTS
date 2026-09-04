@@ -3,6 +3,7 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  initHeroVideo();
   initTypologyFilter();
   initProjectsGallery();
   initModals();
@@ -11,6 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScrollSpy();
   initMobileNav();
 });
+
+/* --------------------------------------------------------------------------
+   0. HERO VIDEO AUTOPLAY HANDLER
+   -------------------------------------------------------------------------- */
+function initHeroVideo() {
+  const video = document.querySelector('.hero-media-video');
+  if (video) {
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        video.muted = true;
+        video.play();
+      });
+    }
+  }
+}
 
 /* --------------------------------------------------------------------------
    1. TYPOLOGY STACK FILTER (Matches User Image Directly Below Hero)
