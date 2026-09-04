@@ -2,7 +2,7 @@
 const siteData = {
   brand: {
     name: "SRS ARCHITECTS",
-    tagline: "Innovative Architectural Design, Urban Planning & Luxury Living",
+    tagline: "Architecting a Better Everyday",
     rating: "4.7",
     reviewCount: "11",
     googleVerified: true,
