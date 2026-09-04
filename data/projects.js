@@ -48,7 +48,7 @@ const siteData = {
       subtitle: "Bioclimatic Double-Height Sky Terraces with Panoramic City Views",
       category: "Residential Architecture",
       location: "Ghaziabad & Noida",
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85",
+      image: "assets/images/residential.jpeg",
       badge: "Luxury Residential Project"
     }
   ],
@@ -58,8 +58,6 @@ const siteData = {
     { id: "commercial", name: "Commercial", count: 32 },
     { id: "hospitality", name: "Hospitality & Banquets", count: 26 },
     { id: "healthcare", name: "Healthcare", count: 18 },
-    { id: "landscape", name: "Landscape", count: 24 },
-    { id: "urban-planning", name: "Urban Planning", count: 15 },
     { id: "educational", name: "Educational", count: 20 },
     { id: "interior-design", name: "Interior design", count: 35 }
   ],
@@ -98,8 +96,9 @@ const siteData = {
       area: "185,000 Sq. Ft.",
       client: "SRS Premium Living",
       status: "Completed",
-      thumbnail: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      thumbnail: "assets/images/residential.jpeg",
       gallery: [
+        "assets/images/residential.jpeg",
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
         "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85"
       ],
